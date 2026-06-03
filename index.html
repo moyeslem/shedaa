@@ -58,9 +58,6 @@ body.dark-mode{
 }
 
 header{
-    position:sticky;
-    top:0;
-    z-index:999;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -256,7 +253,7 @@ section{
 
 .features-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(3,minmax(250px,1fr));
     gap:25px;
 }
 
@@ -271,6 +268,10 @@ section{
 .feature-card h3{
     color:var(--gold);
     margin-bottom:10px;
+}
+
+.feature-card:last-child{
+    grid-column:2;
 }
 
 .delivery-box,
@@ -294,6 +295,11 @@ section{
     padding:12px 22px;
     border-radius:30px;
     box-shadow:var(--shadow);
+}
+
+.payment-note{
+    text-align:center;
+    margin-top:3.6em;
 }
 
 
@@ -418,6 +424,14 @@ nav{
     grid-template-columns:1fr;
 }
 
+.features-grid{
+    grid-template-columns:1fr;
+}
+
+.feature-card:last-child{
+    grid-column:auto;
+}
+
 .product-card img,
 .sprays img{
     height:360px;
@@ -456,10 +470,10 @@ nav{
 
 <h1>شذى</h1>
 
-<h2>عبقٌ يدوم... وفخامةٌ تُحكى</h2>
+<h2>عبقٌ يدوم... وفخامةٌ تُحكى 👑</h2>
 
 <p>
-نقدم أجود أنواع البخور والرشوش المختارة بعناية
+حَكايةُ دَلالٍ موريتانِيـَّـة صُنِعت بتفاصِيل عَصرِية
 لتمنح منزلكِ حضورًا لا يُنسى.
 </p>
 
@@ -608,7 +622,7 @@ nav{
 
 <p>🚚 داخل نواكشوط: 100 - 150 أوقية جديدة</p>
 
-<p>🚚 جميع ولايات موريتانيا: 200 أوقية جديدة</p>
+<p>🚚 جميع ولايات موريتان: 200 أوقية جديدة</p>
 
 </div>
 
@@ -633,7 +647,7 @@ nav{
 <span>الدفع عند الاستلام</span>
 
 </div>
-<h3 style="text-align:center;">
+<h3 class="payment-note">
     ماعندك عذر
 </h3>
 
@@ -647,11 +661,13 @@ nav{
 
 <div class="contact-info">
 
-<p>📞 44 40 12 34</p>
+<p>📞 +222 24 40 01 34</p>
 
 <p>📧 medyeslemmoust@gmail.com</p>
 
-<p>📱 تيك توك: @shedhaa1</p>
+<p>ꚠ تيك توك: @shedhaa1</p>
+
+<p>👻 سناب شات: tuumy.store</p>
 
 </div>
 
@@ -670,7 +686,6 @@ nav{
 <label for="buyerName">الاسم الكامل</label>
 <input id="buyerName" name="buyerName" type="text" required autocomplete="name">
 </div>
-
 <div class="form-group">
 <label for="buyerPhone">رقم الهاتف </label>
 <input id="buyerPhone" name="buyerPhone" type="tel" required inputmode="numeric" pattern="[0-9 ]{6,20}" >
@@ -701,7 +716,7 @@ nav{
 </footer>
 
 <a class="whatsapp-btn"
-href="https://wa.me/22244401234"
+href="https://wa.me/22224401234"
 target="_blank">
 واتساب
 </a>
@@ -760,12 +775,12 @@ const message=`السلام عليكم،
 طلب جديد من موقع شذى:
 
 الاسم الكامل: ${buyerName}
-رقم الهاتف بدون مفتاح الدولة: ${buyerPhone}
+رقم الهاتف : ${buyerPhone}
 المنتج: ${product}
 الكمية: ${quantity}`;
 
 window.open(
-`https://wa.me/22244401234?text=${encodeURIComponent(message)}`,
+`https://wa.me/22224401234?text=${encodeURIComponent(message)}`,
 "_blank"
 );
 
