@@ -23,15 +23,38 @@ html{
 
 body{
     font-family:'Cairo',sans-serif;
-    background:#FAF5F0;
-    color:#2E2E2E;
+    background:var(--bg);
+    color:var(--text);
     line-height:1.8;
+    transition:background .3s,color .3s;
 }
 
 :root{
     --gold:#C9A96E;
     --gold-dark:#b18d4d;
     --shadow:0 10px 30px rgba(0,0,0,.08);
+    --bg:#FAF5F0;
+    --text:#2E2E2E;
+    --surface:#ffffff;
+    --surface-soft:#fffaf4;
+    --header-bg:rgba(255,255,255,.85);
+    --border:#e5d8c8;
+    --offer-bg:linear-gradient(135deg,#f5e5c7,#fff4df);
+    --footer-bg:#f0e5da;
+}
+
+body.dark-mode{
+    --gold:#d8b873;
+    --gold-dark:#c6a25e;
+    --shadow:0 14px 35px rgba(0,0,0,.35);
+    --bg:#15120f;
+    --text:#f4eadf;
+    --surface:#231d18;
+    --surface-soft:#1c1713;
+    --header-bg:rgba(24,19,16,.9);
+    --border:#4b3c2f;
+    --offer-bg:linear-gradient(135deg,#2b2118,#1c1713);
+    --footer-bg:#201914;
 }
 
 header{
@@ -42,7 +65,7 @@ header{
     justify-content:space-between;
     align-items:center;
     padding:18px 8%;
-    background:rgba(255,255,255,.85);
+    background:var(--header-bg);
     backdrop-filter:blur(10px);
     box-shadow:0 2px 15px rgba(0,0,0,.05);
 }
@@ -58,7 +81,7 @@ nav{
 
 nav a{
     text-decoration:none;
-    color:#2E2E2E;
+    color:var(--text);
     font-weight:600;
 }
 
@@ -111,9 +134,21 @@ nav a:hover{
 }
 
 .btn-secondary{
-    background:white;
-    color:#2E2E2E;
-    border:1px solid #ddd;
+    background:var(--surface);
+    color:var(--text);
+    border:1px solid var(--border);
+}
+
+.theme-toggle{
+    background:var(--surface);
+    color:var(--text);
+    border:1px solid var(--border);
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:1.25rem;
+    box-shadow:var(--shadow);
 }
 
 .hero-image{
@@ -146,7 +181,7 @@ section{
 }
 
 .product-card{
-    background:white;
+    background:var(--surface);
     padding:30px;
     border-radius:20px;
     box-shadow:var(--shadow);
@@ -183,7 +218,7 @@ section{
 }
 
 .offer{
-    background:linear-gradient(135deg,#f5e5c7,#fff4df);
+    background:var(--offer-bg);
     text-align:center;
 }
 
@@ -226,7 +261,7 @@ section{
 }
 
 .feature-card{
-    background:white;
+    background:var(--surface);
     padding:25px;
     border-radius:20px;
     text-align:center;
@@ -240,7 +275,7 @@ section{
 
 .delivery-box,
 .contact-info{
-    background:white;
+    background:var(--surface);
     padding:35px;
     border-radius:20px;
     text-align:center;
@@ -255,7 +290,7 @@ section{
 }
 
 .payment-list span{
-    background:white;
+    background:var(--surface);
     padding:12px 22px;
     border-radius:30px;
     box-shadow:var(--shadow);
@@ -263,13 +298,13 @@ section{
 
 
 .order-section{
-    background:#fffaf4;
+    background:var(--surface-soft);
 }
 
 .order-form{
     max-width:720px;
     margin:0 auto;
-    background:white;
+    background:var(--surface);
     padding:35px;
     border-radius:20px;
     box-shadow:var(--shadow);
@@ -284,18 +319,18 @@ section{
 
 .form-group label{
     font-weight:700;
-    color:#2E2E2E;
+    color:var(--text);
 }
 
 .form-group input,
 .form-group select{
     width:100%;
-    border:1px solid #e5d8c8;
+    border:1px solid var(--border);
     border-radius:14px;
     padding:14px 16px;
     font:inherit;
-    background:#fffdf9;
-    color:#2E2E2E;
+    background:var(--surface-soft);
+    color:var(--text);
 }
 
 .form-group input:focus,
@@ -323,7 +358,7 @@ section{
 footer{
     text-align:center;
     padding:25px;
-    background:#f0e5da;
+    background:var(--footer-bg);
 }
 
 .whatsapp-btn{
@@ -348,6 +383,7 @@ footer{
     transform:translateY(40px);
     transition:.8s;
 }
+
 .show{
     opacity:1;
     transform:translateY(0);
@@ -407,6 +443,10 @@ nav{
 <a href="#delivery">التوصيل</a>
 <a href="#contact">تواصل معنا</a>
 </nav>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="تفعيل الوضع الداكن">
+☾
+</button>
 
 </header>
 
@@ -671,6 +711,24 @@ target="_blank">
 const buttons=document.querySelectorAll(".order-btn");
 const productChoice=document.getElementById("productChoice");
 const orderForm=document.getElementById("orderForm");
+const themeToggle=document.getElementById("themeToggle");
+
+if(themeToggle){
+
+themeToggle.addEventListener("click",()=>{
+
+document.body.classList.toggle("dark-mode");
+
+const isDark=document.body.classList.contains("dark-mode");
+themeToggle.textContent=isDark ? "☀" : "☾";
+themeToggle.setAttribute(
+"aria-label",
+isDark ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"
+);
+
+});
+
+}
 
 buttons.forEach((btn,index)=>{
 
