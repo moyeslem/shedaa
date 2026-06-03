@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>شذى | البخور والرشوش الفاخرة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:#FAF5F0;
+    color:#2E2E2E;
+    line-height:1.8;
+}
+
+:root{
+    --gold:#C9A96E;
+    --gold-dark:#b18d4d;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:999;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+}
+
+.logo img{
+    height:70px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#2E2E2E;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+    padding:80px 8%;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-content h1{
+    font-size:5rem;
+    color:var(--gold);
+}
+
+.hero-content h2{
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    margin-bottom:30px;
+    max-width:550px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn-primary,
+.btn-secondary{
+    padding:14px 30px;
+    border-radius:50px;
+    text-decoration:none;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:white;
+}
+
+.btn-secondary{
+    background:white;
+    color:#2E2E2E;
+    border:1px solid #ddd;
+}
+
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img{
+    max-width:620px;
+    width:100%;
+    border-radius:25px;
+    box-shadow:var(--shadow);
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    color:var(--gold);
+    margin-bottom:50px;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:30px;
+}
+
+.product-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.product-card img{
+    width:100%;
+    height:460px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.price{
+    color:var(--gold);
+    font-size:1.5rem;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.product-card ul{
+    list-style:none;
+    margin-bottom:20px;
+}
+
+.order-btn{
+    background:var(--gold);
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.offer{
+    background:linear-gradient(135deg,#f5e5c7,#fff4df);
+    text-align:center;
+}
+
+.offer h2{
+    margin:20px 0;
+}
+
+.sprays{
+    display:flex;
+    gap:60px;
+    align-items:center;
+}
+
+.sprays img{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.sprays-image,
+.sprays-content{
+    flex:1;
+}
+
+.sprays-image{
+    flex:1.2;
+}
+
+.sprays-content h2{
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.feature-card h3{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.delivery-box,
+.contact-info{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+}
+
+.payment-list{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.payment-list span{
+    background:white;
+    padding:12px 22px;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+
+.order-section{
+    background:#fffaf4;
+}
+
+.order-form{
+    max-width:720px;
+    margin:0 auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    display:grid;
+    gap:18px;
+}
+
+.form-group{
+    display:grid;
+    gap:8px;
+}
+
+.form-group label{
+    font-weight:700;
+    color:#2E2E2E;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    border:1px solid #e5d8c8;
+    border-radius:14px;
+    padding:14px 16px;
+    font:inherit;
+    background:#fffdf9;
+    color:#2E2E2E;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    outline:2px solid rgba(201,169,110,.35);
+    border-color:var(--gold);
+}
+
+.order-submit{
+    justify-self:center;
+    min-width:220px;
+    background:var(--gold);
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    cursor:pointer;
+    font:inherit;
+    font-weight:700;
+}
+
+.order-submit:hover{
+    background:var(--gold-dark);
+}
+footer{
+    text-align:center;
+    padding:25px;
+    background:#f0e5da;
+}
+
+.whatsapp-btn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:.8s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.sprays{
+    flex-direction:column;
+}
+
+header{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-content h1{
+    font-size:3rem;
+}
+
+.products-grid{
+    grid-template-columns:1fr;
+}
+
+.product-card img,
+.sprays img{
+    height:360px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<img src="logo.png" alt="شذى">
+</div>
+
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#products">المنتجات</a>
+<a href="#offer">العروض</a>
+<a href="#delivery">التوصيل</a>
+<a href="#contact">تواصل معنا</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>شذى</h1>
+
+<h2>عبقٌ يدوم... وفخامةٌ تُحكى</h2>
+
+<p>
+نقدم أجود أنواع البخور والرشوش المختارة بعناية
+لتمنح منزلكِ حضورًا لا يُنسى.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#order" class="btn-primary">
+اطلبي الآن
+</a>
+
+<a href="#products" class="btn-secondary">
+استعرضي المنتجات
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="bakhoor-large.jpg" alt="">
+</div>
+
+</section>
+
+<section id="products">
+
+<h2 class="section-title">
+منتجاتنا
+</h2>
+
+<div class="products-grid">
+
+<div class="product-card">
+
+<img src="bakhoor-large.jpg" alt="">
+
+<h3>البخور الكبير</h3>
+
+<div class="price">
+800 أوقية جديدة
+</div>
+
+<ul>
+<li>ثبات مميز</li>
+<li>رائحة فاخرة</li>
+<li>مناسب للمناسبات</li>
+</ul>
+
+<button class="order-btn">
+اطلبي الآن
+</button>
+
+</div>
+
+<div class="product-card">
+
+<img src="bakhoor-small.jpg" alt="">
+
+<h3>البخور الصغير</h3>
+
+<div class="price">
+600 أوقية جديدة
+</div>
+
+<ul>
+<li>نفس الجودة الفاخرة</li>
+<li>حجم اقتصادي</li>
+<li>سهل الحمل</li>
+</ul>
+
+<button class="order-btn">
+اطلبي الآن
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="offer" id="offer">
+
+<h2>
+🎁 عرض خاص
+</h2>
+
+<p>
+عند شراء علبتين من البخور الكبير تحصلين على رشوش مجاني
+</p>
+
+</section>
+
+<section class="sprays">
+
+<div class="sprays-image">
+<img src="sprays.jpg" alt="">
+</div>
+
+<div class="sprays-content">
+<h2>رشوش شذى</h2>
+<p>
+روائح أنثوية أنيقة ومنعشة تضيف لمسة من الجمال والتألق.
+</p>
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+لماذا شذى؟
+</h2>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<h3>جودة عالية</h3>
+<p>أجود المواد المختارة بعناية</p>
+</div>
+
+<div class="feature-card">
+<h3>أسعار مناسبة</h3>
+<p>أفضل قيمة مقابل السعر</p>
+</div>
+
+<div class="feature-card">
+<h3>توصيل سريع</h3>
+<p>داخل نواكشوط وجميع الولايات</p>
+</div>
+
+<div class="feature-card">
+<h3>خدمة موثوقة</h3>
+<p>متابعة حتى استلام الطلب</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="delivery">
+
+<h2 class="section-title">
+التوصيل
+</h2>
+
+<div class="delivery-box">
+
+<p>🚚 داخل نواكشوط: 100 - 150 أوقية جديدة</p>
+
+<p>🚚 جميع ولايات موريتانيا: 200 أوقية جديدة</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+طرق الدفع
+</h2>
+
+<div class="payment-list">
+
+<span>بنكيلي</span>
+<span>مصرفي</span>
+<span>السداد</span>
+<span>كليك</span>
+<span>بيم بنك</span>
+<span>بايننس</span>
+<span>فيزا</span>
+<span>بايبال</span>
+<span>الدفع عند الاستلام</span>
+
+</div>
+<h3 style="text-align:center;">
+    ماعندك عذر
+</h3>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">
+تواصل معنا
+</h2>
+
+<div class="contact-info">
+
+<p>📞 44 40 12 34</p>
+
+<p>📧 medyeslemmoust@gmail.com</p>
+
+<p>📱 تيك توك: @shedhaa1</p>
+
+</div>
+
+</section>
+
+
+<section class="order-section" id="order">
+
+<h2 class="section-title">
+إطلاق الطلب
+</h2>
+
+<form class="order-form" id="orderForm">
+
+<div class="form-group">
+<label for="buyerName">الاسم الكامل</label>
+<input id="buyerName" name="buyerName" type="text" required autocomplete="name">
+</div>
+
+<div class="form-group">
+<label for="buyerPhone">رقم الهاتف </label>
+<input id="buyerPhone" name="buyerPhone" type="tel" required inputmode="numeric" pattern="[0-9 ]{6,20}" >
+</div>
+
+<div class="form-group">
+<label for="productChoice">المنتج</label>
+<select id="productChoice" name="productChoice" required>
+<option value="الحجم الكبير - 800 MRU">الحجم الكبير - 800 MRU</option>
+<option value="الحجم الصغير - 600 MRU">الحجم الصغير - 600 MRU</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="quantity">الكمية</label>
+<input id="quantity" name="quantity" type="number" min="1" max="100" value="1" required>
+</div>
+
+<button class="order-submit" type="submit">
+إرسال الطلب
+</button>
+
+</form>
+
+</section>
+<footer>
+<p>جميع الحقوق محفوظة © شذى</p>
+</footer>
+
+<a class="whatsapp-btn"
+href="https://wa.me/22244401234"
+target="_blank">
+واتساب
+</a>
+
+<script>
+
+const buttons=document.querySelectorAll(".order-btn");
+const productChoice=document.getElementById("productChoice");
+const orderForm=document.getElementById("orderForm");
+
+buttons.forEach((btn,index)=>{
+
+btn.addEventListener("click",()=>{
+
+if(productChoice){
+productChoice.selectedIndex=index;
+}
+
+document.getElementById("order").scrollIntoView({behavior:"smooth"});
+
+});
+
+});
+
+if(orderForm){
+
+orderForm.addEventListener("submit",event=>{
+
+event.preventDefault();
+
+const buyerName=document.getElementById("buyerName").value.trim();
+const buyerPhone=document.getElementById("buyerPhone").value.trim();
+const product=productChoice.value;
+const quantity=document.getElementById("quantity").value;
+
+const message=`السلام عليكم،
+
+طلب جديد من موقع شذى:
+
+الاسم الكامل: ${buyerName}
+رقم الهاتف بدون مفتاح الدولة: ${buyerPhone}
+المنتج: ${product}
+الكمية: ${quantity}`;
+
+window.open(
+`https://wa.me/22244401234?text=${encodeURIComponent(message)}`,
+"_blank"
+);
+
+});
+
+}
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(
+".product-card,.feature-card,.delivery-box,.contact-info,.sprays-content,.sprays-image,.order-form"
+).forEach(el=>{
+
+el.classList.add("hidden");
+
+observer.observe(el);
+
+});
+
+</script>
+
+</body>
+</html>
